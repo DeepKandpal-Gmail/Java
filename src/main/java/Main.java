@@ -34,7 +34,7 @@ public class Main {
       Map<String, Object> attributes = new HashMap<>();
       try {
 		  
-		  private static Connection getConnection() throws URISyntaxException, SQLException {
+		 
     URI dbUri = new URI(System.getenv("USERS_DB_URL"));
 
     String username = dbUri.getUserInfo().split(":")[0];
