@@ -35,13 +35,9 @@ public class Main {
       try {
 		  
 		 
-    URI dbUri = new URI(System.getenv("USERS_DB_URL"));
+    URI dbUri = new URI(System.getenv("USERS_DB_URL"))
 
-    String username = dbUri.getUserInfo().split(":")[0];
-    String password = dbUri.getUserInfo().split(":")[1];
-    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-    connection= DriverManager.getConnection(dbUrl, username, password);
+    connection= DriverManager.getConnection(dbUri);
 		Statement stmt = connection.createStatement();
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
         stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
