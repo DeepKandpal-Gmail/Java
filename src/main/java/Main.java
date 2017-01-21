@@ -35,9 +35,9 @@ public class Main {
       try {
 		  
 		 
-    URI dbUri = new URI(System.getenv("USERS_DB_URL"))
+    URI dbUri = new URI(System.getenv("USERS_DB_URL"));
 
-    connection= DriverManager.getConnection(dbUri);
+    connection = DriverManager.getConnection(dbUri);
 		Statement stmt = connection.createStatement();
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
         stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
