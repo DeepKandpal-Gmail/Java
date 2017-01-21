@@ -33,7 +33,9 @@ public class Main {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
       try {
-        connection = DatabaseUrl.extract().getConnection();
+		
+		String dbUrl = System.getenv("USERS_DB_URL");
+        connection = DriverManager.getConnection(dbUrl);
 
         Statement stmt = connection.createStatement();
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
